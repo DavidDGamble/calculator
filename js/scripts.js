@@ -15,8 +15,8 @@ function divide(number1, number2) {
 // user interface logic 
 const number1 = parseInt(prompt("Enter a number:"));
 const number2 = parseInt(prompt("Enter another number:"));
-let addResult = ('The addition of your numbers equals ' + add(number1, number2) + '.');
-let subtractResult = ('The subtraction of your numbers equals ' + subtract(number1, number2) + '.');
-let multiplyResult = ('The multiplication of your numbers equals ' + multiply(number1, number2) + '.');
-let divideResult = ('The division of your numbers equals ' + divide(number1, number2) + '.');
+let addResult = (number1 + '+' + number2 + '=' + add(number1, number2) + '.');
+let subtractResult = (number1 + '-' + number2 + '=' + subtract(number1, number2) + '.');
+let multiplyResult = (number1 + '*' + number2 + '=' + multiply(number1, number2) + '.');
+let divideResult = (number1 + '/' + number2 + '=' + divide(number1, number2) + '.');
 window.alert(addResult + subtractResult + multiplyResult + divideResult);
