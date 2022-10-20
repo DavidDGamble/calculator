@@ -1,22 +1,45 @@
-// business logic
-function add(number1, number2) {
-  return number1 + number2;
-}
-function subtract(number1, number2) {
-  return number1 - number2;
-}
-function multiply(number1, number2) {
-  return number1 * number2;
-}
-function divide(number1, number2) {
-  return number1 / number2;
+// Business Logic
+function add(num1, num2) {
+  return num1 + num2;
 }
 
-// user interface logic 
-const number1 = parseInt(prompt("Enter a number:"));
-const number2 = parseInt(prompt("Enter another number:"));
-let addResult = (number1 + '+' + number2 + '=' + add(number1, number2) + '.');
-let subtractResult = (number1 + '-' + number2 + '=' + subtract(number1, number2) + '.');
-let multiplyResult = (number1 + '*' + number2 + '=' + multiply(number1, number2) + '.');
-let divideResult = (number1 + '/' + number2 + '=' + divide(number1, number2) + '.');
-window.alert(addResult + subtractResult + multiplyResult + divideResult);
+function subtract(num1, num2) {
+  return num1 - num2;
+}
+
+function multiply(num1, num2) {
+  return num1 * num2;
+}
+
+function divide(num1, num2) {
+  return num1 / num2;
+}
+
+function calculate(num1, num2, operatorParam) {
+  if (operatorParam === "add") {
+    return add(num1, num2);
+  } else if (operatorParam === "subtract") {
+    return subtract(num1, num2);
+  } else if (operatorParam === "multiply") {
+    return multiply(num1, num2);
+  } else if (operatorParam === "divide") {
+    return divide(num1, num2);
+  }
+}
+
+// User Interface Logic
+function handleSubmission(event) {
+  event.preventDefault();
+  const number1 = parseInt(document.querySelector("input#input1").value);
+  const number2 = parseInt(document.querySelector("input#input2").value);
+  const operator = document.querySelector("input[name='operator']:checked").value;
+
+  let result = calculate(number1, number2, operator);
+
+  document.getElementById("output").innerText = result;
+}
+
+window.addEventListener("load", function() {
+  const form = document.getElementById("calculator");
+  form.addEventListener("submit", handleSubmission);
+});
